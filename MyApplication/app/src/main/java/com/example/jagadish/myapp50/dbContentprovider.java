@@ -77,10 +77,10 @@ public class dbContentprovider extends ContentProvider{
                 break;
             case cat_id:
                 tabname="Category";
-                if(selection==null)
+                if(selection==null || selection=="")
                     selection = "_id = " + uri.getLastPathSegment();
                 else
-                    selection = selection + "_id = " + uri.getLastPathSegment();
+                    selection = selection + "AND _id = " + uri.getLastPathSegment();
                 break;
 
 
@@ -89,10 +89,10 @@ public class dbContentprovider extends ContentProvider{
                 break;
             case acct_id:
                 tabname="Accounts";
-                if(selection==null)
+                if(selection==null || selection=="")
                     selection = "_id = " + uri.getLastPathSegment();
                 else
-                    selection = selection + "_id = " + uri.getLastPathSegment();
+                    selection = selection + "AND _id = " + uri.getLastPathSegment();
                 break;
 
 
@@ -112,10 +112,10 @@ public class dbContentprovider extends ContentProvider{
                 tc.moveToFirst();
                 tabname=tc.getString(0);
 
-                if(selection==null)
+                if(selection==null || selection=="")
                     selection = "_id = " + uri.getLastPathSegment();
                 else
-                    selection = selection + "_id = " + uri.getLastPathSegment();
+                    selection = selection + "AND _id = " + uri.getLastPathSegment();
                 break;
 
             default:
@@ -254,10 +254,10 @@ public class dbContentprovider extends ContentProvider{
                 break;
             case acct_id:
                 tabname="Accounts";
-                if(selection==null)
+                if(selection==null || selection=="")
                     selection = "_id = " + uri.getLastPathSegment();
                 else
-                    selection = selection + "_id = " + uri.getLastPathSegment();
+                    selection = selection + "AND _id = " + uri.getLastPathSegment();
                 break;
 
 
@@ -277,10 +277,10 @@ public class dbContentprovider extends ContentProvider{
                 tc.moveToFirst();
                 tabname=tc.getString(0);
 
-                if(selection==null)
+                if(selection==null || selection=="")
                     selection = "_id = " + uri.getLastPathSegment();
                 else
-                    selection = selection + "_id = " + uri.getLastPathSegment();
+                    selection = selection + "AND _id = " + uri.getLastPathSegment();
                 break;
 
             default:
@@ -322,10 +322,10 @@ public class dbContentprovider extends ContentProvider{
                 //break;
             case acct_id:
                 tabname="Accounts";
-                if(selection==null)
+                if(selection==null || selection=="")
                     selection = "_id = " + uri.getLastPathSegment();
                 else
-                    selection = selection + "_id = " + uri.getLastPathSegment();
+                    selection = selection + "AND _id = " + uri.getLastPathSegment();
 
                 throw new IllegalArgumentException("Accounts table cannot be updated" + uri);
 
@@ -348,10 +348,10 @@ public class dbContentprovider extends ContentProvider{
                 tc.moveToFirst();
                 tabname=tc.getString(0);
 
-                if(selection==null)
+                if(selection==null || selection=="")
                     selection = "_id = " + uri.getLastPathSegment();
                 else
-                    selection = selection + "_id = " + uri.getLastPathSegment();
+                    selection = selection + "AND _id = " + uri.getLastPathSegment();
                 break;
 
             default:

@@ -108,30 +108,47 @@ public class CatDatabase {
             String[] selectionargst;
             Cursor tc;
 
-            try {
+            try
+            {
                 idval = Integer.parseInt(uri1.getLastPathSegment());
-                selectiont= "_id = " + uri1.getLastPathSegment();
-                tc = cpQuery("Accounts", new String[] {"Name"}, selectiont, null, null);
-                tc.moveToFirst();
-                db.execSQL("DROP TABLE IF EXISTS " + tc.getString(0));
-                //selectionargst=selectionArgs;
-            } catch (NumberFormatException e) {
-                selectionargst=selectionArgs;
-                selectiont= selection;
-                Log.v("test",selectiont);
+                selectiont = "_id = " + uri1.getLastPathSegment();
+                tc = cpQuery("Accounts", new String[]{"Name"}, selectiont, null, null);
+                Log.v("success","success");
+            }catch (NumberFormatException e) {
+                //selectionargst = selectionArgs;
+                //selectiont = selection;
+                Log.v(selection, selectionArgs[0]);
 
-                tc = cpQuery("Accounts", new String[] {"Name"}, selectiont, selectionargst, null);
-                tc.moveToFirst();
-                db.execSQL("DROP TABLE IF EXISTS " + tc.getString(0));
+                tc = cpQuery("Accounts", new String[]{"Name"}, selection, selectionArgs, null);
             }
 
+            if(tc.getCount()>0) {
+
+                try {
+                    idval = Integer.parseInt(uri1.getLastPathSegment());
+                    selectiont = "_id = " + uri1.getLastPathSegment();
+                    tc = cpQuery("Accounts", new String[]{"Name"}, selectiont, null, null);
+                    tc.moveToFirst();
+                    db.execSQL("DROP TABLE IF EXISTS " + tc.getString(0));
+                    Log.v("success","success");
+                    //selectionargst=selectionArgs;
+                } catch (NumberFormatException e) {
+                    //selectionargst = selectionArgs;
+                    //selectiont = selection;
+                    Log.v(selection, selectionArgs[0]);
+
+                    tc = cpQuery("Accounts", new String[]{"Name"}, selection, selectionArgs, null);
+                    tc.moveToFirst();
+                    db.execSQL("DROP TABLE IF EXISTS " + tc.getString(0));
+                }
+            }
 
             //Cursor tc = cpQuery("Accounts", new String[] {"Name"}, selectiont, selectionargst, null);
             //tc.moveToFirst();
             //db.execSQL("DROP TABLE IF EXISTS " + tc.getString(0));
 
             //Log.v(TableName,selectionArgs[0]);
-            return  db.delete(TableName, selection, selectionArgs);
+            return db.delete(TableName, selection, selectionArgs);
         }
         else {
             Log.v(TableName, selection);
