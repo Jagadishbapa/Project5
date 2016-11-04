@@ -11,3 +11,34 @@ Phone-Nexus 5x-1080*1920,420dpi, Android 7.0
 
 
 
+* Query working: YES.
+* Create working: YES
+* Update working: YES.
+* Delete working: YES.
+* Cursor loaders: Working.
+
+
+# Your grade:  40/50
+
+# Problem 1 (affects update and delete): -5
+
+You have this code which can cause an exception:
+
+    selection = selection + "_id = " + uri.getLastPathSegment();
+
+It should be:
+
+    selection = selection + " AND _id = " + uri.getLastPathSegment();
+
+The reason is that a selection clause like "AGE=19" will be translated into something like "AGE=19_id=34" instead of "AGE=19 AND _id=34"
+
+I saw you had it right in the accounts and transactions, the problem is in categories.
+
+
+
+
+# Minor problem: -5
+
+* *Coding style (-2):* Classes should start with uppercase and be in CamelCase as per Java coding conventions. So "dbContentprovider" should be "DbContentProvider".
+* *Coding correctness (-3):* This will not work always: `selection==""`. Compare Strings with equals unless you know you are referring to the same object (which you cannot guarantee in this case).
+
