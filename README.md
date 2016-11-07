@@ -18,9 +18,9 @@ Phone-Nexus 5x-1080*1920,420dpi, Android 7.0
 * Cursor loaders: Working.
 
 
-# Your grade:  40/50
+# Your grade:  47/50
 
-# Problem 1 (affects update and delete): -5
+# Problem 1 (affects update and delete):
 
 You have this code which can cause an exception:
 
@@ -37,8 +37,8 @@ I saw you had it right in the accounts and transactions, the problem is in categ
 
 
 
-# Minor problem: -5
+# Minor problem: -3
 
-* *Coding style (-2):* Classes should start with uppercase and be in CamelCase as per Java coding conventions. So "dbContentprovider" should be "DbContentProvider".
+* *Coding style (-0):* Classes should start with uppercase and be in CamelCase as per Java coding conventions. So "dbContentprovider" should be "DbContentProvider".
 * *Coding correctness (-3):* This will not work always: `selection==""`. Compare Strings with equals unless you know you are referring to the same object (which you cannot guarantee in this case).
 
